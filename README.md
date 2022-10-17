@@ -2,28 +2,27 @@
 
 # LAB | Vue.js IronContacts
 
-## Introduction
+## Introducción
 
-After Ironhack, you have decided to work in the movie industry, and you've found a job where you need to manage the contacts of a famous producer.
+Después de Ironhack, has decidido trabajar en la industria del cine, y has encontrado un trabajo en el que necesitas gestionar los contactos de un famoso productor.
 
-Your task is to create a contact management app for the producer using Vue.js.
+Tu tarea es crear una aplicación de gestión de contactos para el productor utilizando Vue.js.
 
-## Setup
+## Configuración
 
-- Fork this repo
-- Clone this repo
-- Open the LAB and start:
+- Haz un fork de este repo
+- Clona este repositorio
+- Abre el LAB y comienza:
 
   ```bash
-  $ cd lab-vue-ironcontacts
-  $ npm install
-  $ npm start
+  $ cd lab-vue-ironcontacts-es
+  $ yarn
+  $ yarn dev
   ```
 
+## La presentación
 
-## Submission
-
-- Upon completion, run the following commands:
+- Al terminar, ejecuta los siguientes comandos:
 
   ```bash
   git add .
@@ -31,119 +30,102 @@ Your task is to create a contact management app for the producer using Vue.js.
   git push origin main
   ```
 
-- Create a Pull Request so that your TAs can check your work.
+- Crea un Pull Request para que tus TAs puedan comprobar tu trabajo.
 
+## Instrucciones
 
-## Getting Started
+### Iteración 1 | Mostrar 5 contactos
 
-Clean the `App.js` component so that it has the following structure:
+Echemos un vistazo al código de inicio.
 
-```js
-// src/App.js
-import "./App.css";
+Dentro de la carpeta `src/data` tenemos un archivo `contacts.json` que contiene los contactos del productor. Importa el archivo `contacts.json` a `App.vue`. Una vez hecho esto, crea una variable ref llamada `contacts` y almacena un **array que contenga los 5 primeros contactos**.
 
-function App() {
-  <template>
-  <div id="app"></div>
-</template>
-}
-export default App;
-```
+Muestra ese array de 5 contactos como una lista en una `<table>` y muestra la `picture`, el `name` y la `popularity` de cada contacto.
 
-## Instructions
+Por ahora, vamos a renderizar el contenido en `App.vue`. Dicho esto, no procedas a crear un componente dedicado para la lista de contactos. La razón será un poco más clara más tarde cuando añadamos el botón de eliminar junto a cada contacto. Probablemente aún no estés familiarizado con el concepto de "levantar el estado" y pasar callbacks como props. Por esta razón, es mejor renderizar todo en un solo componente por el momento.
 
-### Iteration 1 | Display 5 Contacts
+Procedamos.
 
-Let's take a look at the starter code.
-
-Inside the `src` folder we have a `contacts.json` file containing the producer's contacts. Import the `contacts.json` file to `App.vue`. Once done, create a ref variable named `contacts` and store an **array containing the first 5 contacts**.
-
-Display that array of 5 contacts as a list in a `<table>` and display the `picture`, `name`, and `popularity` of each contact.
-
-For now, let's render the content in `App.vue`. This being said, don't proceed to create a dedicated component for the contact list. The reason will become a bit clearer later when we add the delete button next to each contact. You are probably not yet familiar with the concept of "lifting state up" and passing callbacks as props. For this reason, it is better to render everything in one component for the moment.
-
-Let's proceed.
-
-To import `contacts.json` in `App.vue`, you can use:
+Para importar `contacts.json` en `App.vue`, puedes usar
 
 ```js
-import contacts from "./contacts.json";
+import contacts from "./data/contacts.json";
 ```
 
-At the end of this iteration, your application should look like this:
+Al final de esta iteración, tu aplicación debería tener este aspecto:
 
 <details>
-  <summary> Check image inside - Iteration 1</summary>
+  <summary> Comprobar imagen dentro - Iteración 1</summary>
 
 ![Screenshot - Iteration 1](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-ironcontacts-1.png)
 
 </details>
 
-### Iteration 2 | Conditionally Display Awards Info
+### Iteración 2 | Mostrar condicionalmente la información de los premios
 
-The producer would like to see the information about the _awards_ that contact has won.
+El productor quiere ver la información sobre los _premios_ que ha ganado el contacto.
 
-Update the list and add two more columns "Won an Oscar" and "Won an Emmy", at the end of the table. Then, depending on the value `wonOscar` and `wonEmmy` of each contact, conditionally render a trophy icon :trophy: or no content.
+Actualiza la lista y añade dos columnas más "Ganó un Oscar" y "Ganó un Emmy", al final de la tabla. A continuación, en función del valor `wonOscar` y `wonEmmy` de cada contacto, renderiza condicionalmente un icono de trofeo :trophy:, 🌟 o ningún contenido.
 
-Once done, your application should look like this:
+Una vez hecho esto, tu aplicación debería tener este aspecto:
 
 <details>
 
-<summary> Check image inside - Iteration 2</summary>
+<summary> Comprobar imagen dentro - Iteración 2</summary>
 
 ![Screenshot - Iteration 2](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-ironcontacts-2.png)
 
 </details>
 
-### Iteration 3 | Add New Random Contacts
+### Iteración 3 | Añadir nuevos contactos aleatorios
 
-In your application, create a _Add Random Contact_ button. Every time you click on this button, it should add a new random contact to the `contacts`. You should get random contacts from the remaining contacts that are still not showing.
+En su aplicación, cree un botón de Añadir Contacto _Aleatorio_. Cada vez que hagas clic en este botón, debería añadir un nuevo contacto aleatorio a los `contactos`. Deberías obtener contactos aleatorios de los contactos restantes que aún no se muestran.
 
-First, randomly select a contact from the array of remaining contacts. Then add that contact to the array that lives in your data ref (that's the previously created array of 5 contacts).
+Primero, selecciona al azar un contacto de la matriz de contactos restantes. A continuación, añade ese contacto a la array que vive en tu ref de datos (que es la array creada anteriormente de 5 contactos).
 
-At the end of this iteration, your website will probably look like this:
+Al final de esta iteración, su sitio web probablemente se verá así:
 
 <details>
-  <summary> Check image inside - Iteration 3 </summary>
+  <summary> Ver imagen interior - Iteración 3 </summary>
 
 ![Screenshot - Iteration 3](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-ironcontacts-3.png)
 
 </details>
 
-### Iteration 4 | Sort Contacts by Name and Popularity
+### Iteración 4 | Ordenar los contactos por nombre y popularidad
 
-The producer asked you to add two new buttons to help them sort their contacts. When you click on one of the buttons, it should **sort the table by `name`** (alphabetically), and when you click the other, it should **sort by `popularity`** (highest first).
+El productor le ha pedido que añada dos nuevos botones para ayudarle a ordenar sus contactos. Al hacer clic en uno de los botones, debería **ordenar la tabla por `name`** (alfabéticamente), y al hacer clic en el otro, debería ordenar por **popularidad** (la más alta primero).
 
-Once you have sorted the array, remember to update the state variable holding the contacts.
+Una vez que hayas ordenado la matriz, recuerda actualizar la variable de estado que contiene los contactos.
 
-This is what you should have at the end of this iteration:
+Esto es lo que deberías tener al final de esta iteración:
 
 <details>
-  <summary> Check image inside - Iteration 4 </summary>
+  <summary> Comprobar imagen interior - Iteración 4 </summary>
 
 ![Screenshot - Iteration 4](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-ironcontacts-4.png)
 
 </details>
 
-### Iteration 5 | Remove Contacts
+### Iteración 5 | Eliminar contactos
 
-The producer also would like to remove some of their contacts. Implement a _Delete_ button on each row of your `<table>` that will let the user remove the contact they clicked.
+El productor también quiere eliminar algunos de sus contactos. Implementar un botón de _delete_ en cada fila de su `<table> ` que permitirá al usuario eliminar el contacto que hizo clic.
 
-When they click, you should get the `id` of that actor and use it to remove the contact from the array. Remember to update the state variable holding the contacts after you remove the contact!
+Cuando hagan clic, deberás obtener el `id` de ese actor y utilizarlo para eliminar el contacto del array. Recuerda actualizar la variable de estado que contiene los contactos después de eliminar el contacto.
 
-When done, your app should look like this (after playing a little bit with the _Delete_ button):
+Una vez hecho esto, tu aplicación debería tener este aspecto (después de jugar un poco con el botón _Delete_ ):
 
 <details>
-  <summary> Check image inside - Iteration 5 </summary>
+  <summary> Ver imagen interior - Iteración 5 </summary>
 
 ![Screenshot - Iteration 5](https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/labs/lab-react-ironcontacts-5.png)
 
 </details>
 
-### Iteration 6 | Bonus | Styling
+### Iteración 6 | Bono | Estilo
 
-Unfortunately, this contact list isn't production-ready. We are in the movie business! It has to sparkle! Add some beautiful CSS to make the app "pop".
+Desafortunadamente, esta lista de contactos no está lista para la producción. Estamos en el negocio del cine. Tiene que brillar. Añade algo de CSS para que la aplicación sea más atractiva.
 
-<br>
+<br/>
 
-Happy coding! :blue_heart:
+Feliz codificación! :blue_heart:
